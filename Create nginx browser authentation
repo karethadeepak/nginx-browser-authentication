@@ -1,0 +1,27 @@
+=============================================================================================================================================================================
+Verify that apache2-utils (Debian, Ubuntu) or httpd-tools (RHEL/CentOS/Oracle Linux) is installed.
+
+
+=> Create Website folder name in /etc/nginx directory
+	cd /etc/nginx
+	mkdir EXAMPLE-WEBSITE
+
+
+
+
+=> Create a password file. Run the htpasswd utility with the -c flag (to create a new file), the file pathname as the first argument, and the username as the second argument:
+	sudo htpasswd -c .htpasswd your_username
+
+
+
+
+=> Add this to line where you want to set browser authentation.
+	auth_basic           "Private Property (Your any custom message)";
+	auth_basic_user_file /etc/nginx/EXAMPLE-WEBSITE/.htpasswd;
+
+
+
+
+=> Restart Nginx
+	sudo /etc/init.d/nginx reload
+=============================================================================================================================================================================
